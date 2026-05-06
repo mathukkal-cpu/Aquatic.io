@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Alphabet Counter</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 50px; }
+    #container { max-width: 400px; margin: auto; }
+    input, button { font-size: 1.2em; margin-top: 10px; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Count Alphabets in a Word</h2>
+    <input type="text" id="wordInput" placeholder="Type a word" />
+    <button onclick="countAlphabets()">Count Alphabets</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    function countAlphabets() {
+      const word = document.getElementById('wordInput').value;
+      // Count only alphabets (English a-z, A-Z)
+      const alphabets = word.match(/[a-z]/gi); 
+      const count = alphabets ? alphabets.length : 0;
+      document.getElementById('result').textContent = 
+        `"${word}" has ${count} alphabet${count === 1 ? '' : 's'}.`;
+    }
+  </script>
+</body>
+</html>
